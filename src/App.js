@@ -35,8 +35,10 @@ class App extends Component {
       let z = winCombinations[i][2];
       if (array[x] && array[x] === array[y] && array[x] === array[z]) {
         this.setState({
-          winMessage:`Winner: ${array[x]} Restart to play New Game.`
+          winMessage:`Winner: ${array[x]}`
         });
+        console.log(this.state.winMessage)
+       //alert("")
       }
     }
   }
@@ -56,19 +58,21 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row mt-5">
-          <div className="col-sm-4 offset-sm-2">
+        <div className="row mt-5 ml-5">
+          <div className="col-sm-4">
             <Box arr={array} onClickSquare={this.handleClick} />
           </div>
-          <div className="col-sm-4">
-            <p>
+          <div className="col-sm-4 mt-2">
+
               <strong>
                 {this.state.winMessage
-                  ? this.state.winMessage
+                  ? <div>
+                  <div>{this.state.winMessage}</div>
+                  <div>{"Please restart the game"}</div>
+                  </div>
                   : `Next Player : ${this.state.isCurrX ? "X" : "O"}`}
               </strong>
-            </p>
-
+              <br></br>
             <button
               className="btn btn-success"
               onClick={() => this.handleRestart()}
@@ -79,6 +83,8 @@ class App extends Component {
         </div>
       </div>
     );
+
+    
   }
 }
 
