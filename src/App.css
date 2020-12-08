@@ -23,7 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.icon{
+  display:block;
+  margin-top: 25%;
+  text-align: center;
+}
 .App-link {
   color: #61dafb;
 }
